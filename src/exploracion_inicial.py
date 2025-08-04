@@ -8,7 +8,10 @@ try:
     dataframes = []
 
     for year in [2018, 2019]:
-        file = f'{year}.csv'
+        import os
+        current_dir = os.path.dirname(__file__)
+        file = os.path.join(current_dir, f'{year}.csv')
+
         df = pd.read_csv(file)  # Leer archivo CSV del año
         df.columns = df.columns.str.strip()  # Eliminar espacios extra en nombres de columnas
         df['year'] = year  # Añadir columna del año
