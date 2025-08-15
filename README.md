@@ -255,9 +255,9 @@ El resultado muestra la evolución de la felicidad en los 12 países más felice
 La exploración y procesamiento realizados en estos scripts permiten construir una base sólida para el análisis del Índice de Felicidad Mundial en los años 2018 y 2019
 
 ##### exploracion_inicial.py 
-se lleva a cabo la limpieza, normalización y verificación estructural de los datos, además de generar una primera visualización comparativa para los países con mayor puntaje de felicidad
+se lleva a cabo la limpieza, normalización y verificación estructural de los datos, además de generar una primera visualización comparativa para los países con mayor puntaje de felicidad 
 
 ##### proyecto_final.py 
-se expande la funcionalidad hacia un enfoque más modular y orientado a objetos, que ofrece múltiples tipos de gráficos (líneas, barras, mapas, dispersión y distribución), con un manejo robusto de errores y traducción de factores a español para una interpretación más clara
+se expande la funcionalidad hacia un enfoque más modular y orientado a objetos, que ofrece múltiples tipos de gráficos (líneas, barras, mapas, dispersión y distribución), con un manejo robusto de errores y traducción de factores a español para una interpretación más clara 
 
-Para concluir el proyecto no solo asegura la preparación de la información, sino que también proporciona herramientas visuales para analizar y comunicar de manera efectiva las tendencias de la felicidad a nivel mundial.
+Para concluir el proyecto no solo asegura la preparación de la información, sino que también proporciona herramientas visuales para analizar y comunicar de manera efectiva las tendencias de la felicidad a nivel mundial 
