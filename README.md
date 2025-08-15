@@ -193,7 +193,7 @@ except Exception as e:
     exit()
 ```
 
-#### Exploración de datos
+### Exploración de datos
 El script imprime en consola:
 
 - Información general del dataset (.info())
@@ -206,7 +206,7 @@ El script imprime en consola:
 
 - Tipos de datos por columna (.dtypes)
 
-##### Visualización comparativa
+### Visualización comparativa
 
 1. Se seleccionan los 12 países más felices en 2019:
 
@@ -227,7 +227,7 @@ ax.barh(y_pos + 0.2, score_2019, xerr=error_2019, height=0.4, label='2019')
 
 El resultado muestra la evolución de la felicidad en los 12 países más felices del mundo, comparando 2018 vs 2019
 
-#### Explicación
+### Explicación
 ##### 1. Uso de os.path.dirname(__file__)
 
 - Permite obtener el directorio del script actual
