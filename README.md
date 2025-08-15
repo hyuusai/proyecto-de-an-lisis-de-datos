@@ -138,7 +138,7 @@ groupby() agrupa datos por país y ['Score'].mean() calcula el promedio del índ
 ```
 
 
-## exploracion_inicial.py
+# Exploracion_inicial.py
 
 Este script en Python realiza una **exploración inicial** de los datos del *World Happiness Report* para los años 2018 y 2019.  
 
