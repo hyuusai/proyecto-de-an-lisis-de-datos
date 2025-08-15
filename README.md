@@ -136,3 +136,58 @@ groupby() agrupa datos por país y ['Score'].mean() calcula el promedio del índ
 
 ```promedio_pais = self.data.groupby('Country or region')['Score'].mean()
 ```
+
+
+## exploracion_inicial.py
+
+Este script en Python realiza una **exploración inicial** de los datos del *World Happiness Report* para los años 2018 y 2019.  
+
+Incluye:
+- Carga y validación de los archivos CSV.
+- Limpieza y normalización de nombres de columnas.
+- Unificación de datasets en un solo DataFrame.
+- Estadísticas descriptivas y revisión de la estructura de los datos.
+- Detección de valores nulos y tipos de datos.
+- Visualización comparativa de la felicidad en los **12 países más felices del 2019**.
+
+---
+
+## Importación de librerías
+
+| Librería | Uso |
+| -------- | --- |
+| pandas | Carga y manipulación de datos tabulares |
+| matplotlib.pyplot | Creación de gráficos básicos |
+| numpy | Cálculos numéricos y manejo de arreglos |
+
+---
+
+## Carga y preparación de datos
+
+- Se buscan los archivos `2018.csv` y `2019.csv` en el mismo directorio del script usando `os.path`.
+- Para cada año:
+  - Se lee el CSV con **pandas**.
+  - Se eliminan espacios extra en los nombres de columnas.
+  - Se añade una columna `year` con el año correspondiente.
+  - Se normalizan nombres de columnas (`Country` → `Country or region`, `Happiness Score` → `Score`).
+  - Se seleccionan únicamente:  
+    - **Country or region**  
+    - **Score**  
+    - **year**
+
+- Si no existe la columna `Score`, se lanza un error.
+- Finalmente, ambos DataFrames se concatenan en `all_data`.
+
+```python
+dataframes.append(df[['Country or region', 'Score', 'year']])
+all_data = pd.concat(dataframes)
+Manejo de excepciones:
+
+python
+Copiar código
+except FileNotFoundError as e:
+    print(f"Archivo no encontrado: {e.filename}")
+    exit()
+except Exception as e:
+    print(f"Error al cargar los archivos: {e}")
+    exit()
