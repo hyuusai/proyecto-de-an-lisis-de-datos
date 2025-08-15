@@ -176,7 +176,7 @@ Incluye:
     - **year**
 
 - Si no existe la columna `Score`, se lanza un error.
-- Finalmente, ambos DataFrames se concatenan en `all_data`.
+- Finalmente, ambos DataFrames se concatenan en `all_data`
 
 ```python
 dataframes.append(df[['Country or region', 'Score', 'year']])
@@ -191,3 +191,63 @@ except FileNotFoundError as e:
 except Exception as e:
     print(f"Error al cargar los archivos: {e}")
     exit()
+```
+
+#### Exploración de datos
+El script imprime en consola:
+
+- Información general del dataset (.info())
+
+- Estadísticas descriptivas (.describe())
+
+- Dimensiones (.shape)
+
+- Valores nulos por columna (.isnull().sum())
+
+- Tipos de datos por columna (.dtypes)
+
+##### Visualización comparativa
+
+1. Se seleccionan los 12 países más felices en 2019:
+
+```top12_2019 = all_data[all_data['year'] == 2019].sort_values(by='Score', ascending=False).head(12)
+```
+
+2. Se filtran los datos de esos mismos países para ambos años
+
+3. Se construyen listas con los puntajes de felicidad de 2018 y 2019 para cada país
+
+4. Se agregan errores aleatorios pequeños con numpy.random.rand() para dar estilo a la gráfica
+
+5. Se genera un gráfico de barras horizontales donde se comparan ambos años:
+
+```ax.barh(y_pos - 0.2, score_2018, xerr=error_2018, height=0.4, label='2018')
+ax.barh(y_pos + 0.2, score_2019, xerr=error_2019, height=0.4, label='2019')
+```
+
+El resultado muestra la evolución de la felicidad en los 12 países más felices del mundo, comparando 2018 vs 2019
+
+#### Explicación
+1. Uso de os.path.dirname(__file__)
+
+- Permite obtener el directorio del script actual
+
+- Asegura que los archivos CSV se encuentren aunque se ejecute desde otra carpeta
+
+2. Normalización de columnas
+
+- Evita inconsistencias (Country vs Country or region, Happiness Score vs Score)
+
+3. Manejo de errores
+
+- El programa no se detiene abruptamente si falta un archivo o columna importante
+
+- Informa claramente el error y finaliza con exit()
+
+  Visualización horizontal (barh)
+
+4. Se usa en lugar de vertical para mejorar la legibilidad de los nombres de países.
+
+- invert_yaxis() coloca a los países con mayor felicidad en la parte superior
+
+  
