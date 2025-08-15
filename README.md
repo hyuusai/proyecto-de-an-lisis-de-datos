@@ -46,7 +46,7 @@ df_2019["year"] = 2019
 ```
 
 Combina los dos datasets en uno solo
-``` all_data = pd.concat([df_2018, df_2019], ignore_index=True)
+```all_data = pd.concat([df_2018, df_2019], ignore_index=True)
 ```
 
 Limpia nombres de países y los normaliza usando un diccionario de reemplazo para evitar inconsistencias 
@@ -134,5 +134,5 @@ except Exception as e:
 
 groupby() agrupa datos por país y ['Score'].mean() calcula el promedio del índice de felicidad por país, es clave para mostrar solo el Top 10 en el gráfic
 
-``` promedio_pais = self.data.groupby('Country or region')['Score'].mean()
+```promedio_pais = self.data.groupby('Country or region')['Score'].mean()
 ```
