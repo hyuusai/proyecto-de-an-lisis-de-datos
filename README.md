@@ -96,4 +96,43 @@ El código usa Herencia y Polimorfismo:
   
 #### 📦 GraficoDistribucion
 - Muestra un histograma de distribución del Score de felicidad usando sns.histplot()
+
+### explicacion
+##### 1. Uso de `__file__` y rutas absolutas
+```python
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+```
+
+- __file__ devuelve la ruta del archivo Python actual
   
+- os.path.abspath(__file__) obtiene la ruta absoluta
+  
+- os.path.dirname(...) elimina el nombre del archivo y deja solo el directorio
+  
+- Esto asegura que el script pueda encontrar los archivos 2018.csv y 2019.csv sin importar desde dónde se ejecute
+
+Se usa un diccionario (country_replacements) para estandarizar nombres y evitar errores en gráficos y agrupaciones 
+```country_replacements = { ... }
+all_data["Country or region"] = all_data["Country or region"].str.strip()
+all_data["Country or region"] = all_data["Country or region"].replace(country_replacements)
+```
+
+Este diccionario no traduce automáticamente las columnas, pero se usa para mostrar las leyendas de los gráficos en español 
+
+```factors = {
+    'GDP per capita': 'PIB per cápita',
+    ...
+}
+```
+
+Evita que el programa se cierre si ocurre un error (por ejemplo, si un país no existe en los datos) 
+```try:
+    ...
+except Exception as e:
+    print(f"{Colores.ROJO}Error al generar gráfico: {e}{Colores.RESET}")
+```
+
+groupby() agrupa datos por país y ['Score'].mean() calcula el promedio del índice de felicidad por país, es clave para mostrar solo el Top 10 en el gráfic
+
+``` promedio_pais = self.data.groupby('Country or region')['Score'].mean()
+```
