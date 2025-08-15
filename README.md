@@ -228,17 +228,17 @@ ax.barh(y_pos + 0.2, score_2019, xerr=error_2019, height=0.4, label='2019')
 El resultado muestra la evolución de la felicidad en los 12 países más felices del mundo, comparando 2018 vs 2019
 
 #### Explicación
-1. Uso de os.path.dirname(__file__)
+##### 1. Uso de os.path.dirname(__file__)
 
 - Permite obtener el directorio del script actual
 
 - Asegura que los archivos CSV se encuentren aunque se ejecute desde otra carpeta
 
-2. Normalización de columnas
+##### 2. Normalización de columnas
 
 - Evita inconsistencias (Country vs Country or region, Happiness Score vs Score)
 
-3. Manejo de errores
+##### 3. Manejo de errores
 
 - El programa no se detiene abruptamente si falta un archivo o columna importante
 
@@ -246,7 +246,7 @@ El resultado muestra la evolución de la felicidad en los 12 países más felice
 
   Visualización horizontal (barh)
 
-4. Se usa en lugar de vertical para mejorar la legibilidad de los nombres de países.
+##### 4. Se usa en lugar de vertical para mejorar la legibilidad de los nombres de países.
 
 - invert_yaxis() coloca a los países con mayor felicidad en la parte superior
 
